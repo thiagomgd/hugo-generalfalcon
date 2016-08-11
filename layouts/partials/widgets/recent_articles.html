@@ -9,7 +9,7 @@
             <li>
                 <div class="item-thumbnail">
                     <a href="{{ .Permalink }}" class="thumbnail">
-                    {{ if and (isset .Params "banner") (not (eq .Params.banner "")) }}
+                    {{ if isset .Params "banner" }}
                         <span style="background-image:url({{ .Params.banner | absURL }})" alt="{{ $.Title }}" class="thumbnail-image"></span>
                     {{else}}
                         <span class="thumbnail-image thumbnail-none"></span>
