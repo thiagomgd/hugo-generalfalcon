@@ -893,11 +893,16 @@ a.article-title:hover {
 }
 .article-entry img,
 .article-entry video {
-  max-width: 100%;
+  width: 95%;
   height: auto;
   display: block;
   margin: auto;
 }
+
+.article-entry img.img-medium {
+  width: 60%;
+}
+
 .article-entry iframe {
   border: none;
 }
