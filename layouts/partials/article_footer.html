@@ -1,10 +1,3 @@
 <footer class="article-footer">
-    <a data-url="{{ .Permalink }}" data-id="{{ .UniqueID }}" class="article-share-link">
-        {{with .Site.Data.l10n.articles.share}}{{.}}{{end}}
-    </a>
-    {{ if not (eq .Site.DisqusShortname "") }}
-    <a href="{{ .Permalink }}/#disqus_thread" class="article-comment-link">
-        {{with .Site.Data.l10n.articles.comments}}{{.}}{{end}}
-    </a>
-    {{end}}
+    <div class='shareaholic-canvas' data-app='share_buttons' data-app-id='19018468' data-title='{{ .Title }}' data-link='{{ .Permalink }}'></div>
 </footer>
