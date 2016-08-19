@@ -1968,3 +1968,10 @@ pre .javascript .function {
 #recent-post li:hover .item-title a {
   color: #38b7ea;
 }
+
+.flex { display: flex; }
+
+.flex > * {
+  flex: 1;
+  padding: 10px;
+}
