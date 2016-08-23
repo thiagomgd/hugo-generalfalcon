@@ -1,0 +1,8 @@
+{{ with .Site.Params.imagelinks.reading }}
+<div>
+    <h3 class="imglink-title ">
+    Reading now</h3>
+    <br/>
+    <a href="{{ .link }}" target="_blank" title="{{ .title }}"><img width=100% title="Shadow Scale" src="{{ .image }}"></a>
+    </div>
+{{ end }}
