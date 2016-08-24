@@ -1,0 +1,68 @@
+{{ if .IsPage }}
+{{ if eq .Type "post" }}
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "{{ if .Params.posttype }}{{ .Params.posttype }}{{ else }}BlogPosting{{ end }}",
+    "name" : {{ printf "\"%s\"" .Title | safeJS }},
+    "headline" : {{ if .Params.headline }}{{ printf "\"%s\"" .Params.headline | safeJS }}{{ else }}{{ printf "\"%s\"" .Title | safeJS }}{{ end }},
+    "description" : {{ printf "\"%s\"" .Description | safeJS }},
+    "inLanguage" : "en-US",
+    "author": {
+    "@type": "Person",
+    "name": "Thiago Margarida",
+    "sameAs":[
+        "http://twitter.com/corgiwho",
+        "http://instagram.com/corgiwho",
+        "http://www.doctorcorgi.com",
+        "http://www.facebook.com/thiago.margarida",
+        "http://www.goodreads.com/thiagomgd"
+        ]
+    },
+    "datePublished": "{{ .Date.Format $.Site.Params.ISO8601 }}",
+    "dateModified": "{{ .Date.Format $.Site.Params.ISO8601 }}",
+    "url" : {{ printf "\"%s\"" .Permalink | safeJS }},
+    "mainEntityOfPage" : {{ printf "\"%s\"" .Permalink | safeJS }},
+    {{ if eq .Params.posttype "Review" -}}
+        "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "{{ .Params.reviewrating }}"
+        },
+        "itemReviewed": {
+            "@type": "{{ .Params.reviewitemtype }}",
+            {{ with .Params.reviewisbn }}
+                "isbn": "{{ . }}",            
+            {{ end }}
+            {{ if .Params.reviewauthor }}
+                "author": {
+                    "@type": "Person",
+                    "name": "{{ .Params.reviewauthor }}",  
+                    "sameAs": "{{ .Params.reviewauthorurl }}"
+                },            
+            {{ end }}
+            {{- if .Params.reviewsameas -}}
+                "sameAs": [ {{ range $i, $e := .Params.reviewsameas }}{{ if $i }}, {{ end }}{{ $e }}{{ end }} ],
+            {{ end -}}
+            "name": {{ printf "\"%s\"" .Params.reviewitemname | safeJS }}
+        },        
+        "reviewBody": {{ if .Params.reviewbody }}{{ printf "\"%s\"" .Params.reviewbody | safeJS }}{{ else }}{{ printf "\"%s\"" .Description | safeJS }}{{ end }},
+    {{ else }}
+        "articleSection" : "{{ .Section }}",
+        "wordCount" : "{{ .WordCount }}",
+    {{ end -}}
+    "image" : [ {{ range $i, $e := .Params.images }}{{ if $i }}, {{ end }}{{ $e }}{{ end }} ],
+    "keywords" : [ {{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ $e }}{{ end }} ],
+    "publisher": {
+        "@type": "Organization",
+        "name": "Thiago Margarida",
+        "logo": {
+        "@type": "ImageObject",
+            "url": "http://www.doctorcorgi.com/avatar.jpg",
+            "width": "128",
+            "height": "128"
+        }
+    }
+}
+</script>
+{{ end }}
+{{ end }}
