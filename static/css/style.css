@@ -209,6 +209,7 @@ a:visited {
   color: #999;
   line-height: 1em;
 }
+
 #header,
 #profile .inner,
 .article-inner,
@@ -1974,4 +1975,11 @@ pre .javascript .function {
 .flex > * {
   flex: 1;
   padding: 10px;
+}
+
+.imglink-title {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #999;
+  line-height: 1em;
 }
