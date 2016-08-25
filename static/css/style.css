@@ -894,7 +894,7 @@ a.article-title:hover {
 }
 .article-entry img,
 .article-entry video {
-  width: 95%;
+  width: 100%;
   height: auto;
   display: block;
   margin: auto;
