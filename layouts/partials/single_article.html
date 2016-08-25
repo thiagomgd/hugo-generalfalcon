@@ -3,7 +3,7 @@
 {{ else }}
 <section id="main">
 {{ end }}
-    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+    <article id="page-undefined" class="article article-type-page" itemscope="itemscope" itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
         <div class="article-inner">
             {{ if and (isset .Params "banner") (not (eq .Params.banner "")) }}
                 <img src="{{ .Params.banner | absURL }}" class="article-banner">
