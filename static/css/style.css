@@ -124,9 +124,19 @@ body {
 a {
   color: #38b7ea;
   text-decoration: none;
+  transition: color, .2s, ease;
 }
 a:visited {
   color: #38b7ea;
+}
+.article-entry a, .article-entry a:visited {
+  color: #2f3846;
+  border-bottom: 2px solid #38b7ea;
+}
+.article-entry a:hover {
+  border-bottom-color: transparent;
+  color: #38b7ea;
+  text-decoration: none !important;
 }
 .outer {
   max-width: 1320px;

@@ -33,6 +33,9 @@
             {{ with .Params.reviewisbn }}
                 "isbn": "{{ . }}",            
             {{ end }}
+            {{ with .Params.reviewispartof }}
+                "isPartOf": "{{ . }}",            
+            {{ end }}
             {{ if .Params.reviewauthor }}
                 "author": {
                     "@type": "Person",
