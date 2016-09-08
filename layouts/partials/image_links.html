@@ -3,6 +3,16 @@
     <h3 class="imglink-title ">
     Reading now</h3>
     <br/>
-    <a href="{{ .link }}" target="_blank" title="{{ .title }}"><img width=100% title="Shadow Scale" src="{{ .image }}"></a>
+    <a href="{{ .link }}" target="_blank" title="{{ .title }}"><img width=100% title="{{ .title }}" src="{{ .image }}"></a>
+    </div>
+{{ end }}
+
+{{ with .Site.Params.imagelinks.watching }}
+<br/>
+<div>
+    <h3 class="imglink-title ">
+    Watching now</h3>
+    <br/>
+    <a href="{{ .link }}" target="_blank" title="{{ .title }}"><img width=100% title="{{ .title }}" src="{{ .image }}"></a>
     </div>
 {{ end }}
