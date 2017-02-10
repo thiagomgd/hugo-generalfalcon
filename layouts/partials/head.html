@@ -11,12 +11,16 @@
     {{ else }}
       <meta name="description" content="{{ .Site.Params.site_description }}">
     {{ end }}
-    {{ if .RSSlink }}
+    {{ if .RSSLink }}
       <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
       <link href="{{ .RSSlink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
     {{ end }}
     <link rel="icon" href="{{ .Site.BaseURL }}/favicon.ico">
     <link rel="apple-touch-icon" href="{{ .Site.BaseURL }}/apple-touch-icon.png" />
+    <!-- W3 css - from W3 schools -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
     <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/style.css">
     <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
@@ -25,6 +29,7 @@
     <meta content='1108880455838916' property='fb:app_id'/>
     <!-- shareaholic -->
     <script type='text/javascript' data-cfasync='false' src='//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js' data-shr-siteid='30d48f934e547baa001d388a2c2f49e9' async='async'></script>
+    
 
     {{ template "_internal/google_analytics.html" . }}
     {{ template "_internal/opengraph.html" . }}
@@ -43,4 +48,12 @@
     {{ end }}
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1108880455838916";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <div class="container">
