@@ -1,4 +1,3 @@
-(function($){
   var toTop = $('#toTop').length ? $('#toTop').offset().top - $(window).height() + 20 : 0;
 
   // Share
@@ -93,5 +92,3 @@
   }).on('click', '#toTop', function () {
     $(document).scrollTop(0);
   });
-
-})(jQuery);
