@@ -1,7 +1,7 @@
 <div style="padding: 0px 20px 0px 20px">
 <h2><b>Related Posts</b></h2>
 <div class="flex">
-    {{ range first 2 ( where ( where .Site.Pages.ByDate.Reverse ".Params.tags" "intersect" .Params.tags ) "Permalink" "!=" .Permalink ) }}
+    {{ range first 2 ( where ( where .Site.RegularPages.ByDate.Reverse ".Params.tags" "intersect" .Params.tags ) "Permalink" "!=" .Permalink ) }}
     <div>
     <div style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2)">
         <a href="{{ .RelPermalink }}"><img src="{{ .Params.banner | absURL }}" alt="{{ .Title | markdownify }}" style="width:100%;opacity:0.85"></a>

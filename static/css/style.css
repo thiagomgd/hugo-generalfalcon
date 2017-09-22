@@ -1993,3 +1993,17 @@ pre .javascript .function {
   color: #999;
   line-height: 1em;
 }
+
+.flexgallery {
+  display: flex !important;
+  flex-flow: row wrap !important;
+}
+
+.flexgallery > p {
+  flex: 1 0 45%;
+  padding: 0 0.2rem 0.2rem;
+}
+
+.flexgallery > p > img {
+  padding: 0.2rem;
+}

@@ -1,0 +1,38 @@
+{{ $associateId := "doctorcorgi-20" }}
+{{ $itemId := index .Params 0 }}
+{{ $json := getJSON "http://api.embed.ly/1/extract?url=http://www.amazon.com/dp/" $itemId }}
+
+<div class="amazon-shortcode-box">
+  "{{ $json }}"
+  <div class="amazon-shortcode-image">
+    <a href="http://www.amazon.com/dp/{{ $itemId }}/?tag={{ $associateId }}/" name="amazon-shortcode" target="\_blank">
+      <img src="{{ $json.images.thumbnail_url }}" alt="{{ $json.title }}" />
+    </a>
+  </div>
+  <div class="amazon-shortcode-info">
+    <p class="amazon-shortcode-title">
+      <a href="http://www.amazon.com/dp/{{ $itemId }}/?tag={{ $associateId }}/" name="amazon-shortcode" target="\_blank">
+        {{ $json.title }}
+      </a>
+    </p>
+    {{ with $json.author }}
+      <p class="amazon-shortcode-author">{{ . }}</p>
+    {{ end }}
+    <div class="amazon-shortcode-detail">
+      {{ if or ( eq $json.product_group "Book") (eq $json.product_group "eBooks") }}
+        <p>：{{ $json.label }}</p>
+      {{ else }}
+        <p>{{ $json.label }}</p>
+      {{ end }}
+      {{ with $json.release_date }}
+        <p>：{{ . }}</p>
+      {{ end }}
+    </div>
+    <p>
+      <a href="http://www.amazon.com/dp/{{ $itemId }}/?tag={{ $associateId }}/" name="backport" target="\_blank">
+        <i class="bp_icon icon icon-amazon"></i>&nbsp;Amazon
+      </a>
+    </p>
+  </div>
+  <br style="clear: both;"/>
+</div>
